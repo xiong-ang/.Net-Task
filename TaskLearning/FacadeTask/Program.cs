@@ -23,7 +23,8 @@ namespace FacadeTask
             Task<int> facadeTask = getRandom.Task;
 
             //Task.Factory.StartNew = new Task + Task.Start
-            Task.Factory.StartNew(() =>
+            //Task.Factory.StartNew(() =>
+            Task.Run(() =>
             {
                 //执行操作或task
                 int value = (new Random()).Next(100);
@@ -45,7 +46,7 @@ namespace FacadeTask
 
         static void TestControlTaskResult(Action<Task> action)
         {
-            Task.Factory.StartNew(async() =>
+            Task.Run(async() =>
             {
                 int value = (new Random()).Next(100);
                 Console.WriteLine("Value: " + value);
@@ -54,7 +55,12 @@ namespace FacadeTask
                 if (value < 33)
                     await Task.FromException(new Exception("Less than 33"));
                 else if (value < 66)
-                    await Task.FromCanceled(new CancellationToken());
+                {
+                    CancellationTokenSource TokenSource = new CancellationTokenSource();
+                    TokenSource.Cancel();
+
+                    await Task.FromCanceled(TokenSource.Token);
+                }
             })
             .ContinueWith(action);
         }

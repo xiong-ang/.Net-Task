@@ -27,6 +27,11 @@
   ```
 
 * Task.Factory.StartNew() 创建并开始Task
+    * StartNew [doesn't understand asynchronous delegates](http://blog.stephencleary.com/2013/08/startnew-is-dangerous.html)
+    * StartNew是一个低层次的API，应该使用Task.Run来替代
+
+* async/await
+    * async void [does not allow the calling code to know when it completes](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx)
 
 ## Facade Task
 
@@ -37,7 +42,8 @@
   TaskCompletionSource<T> existingOp = new TaskCompletionSource<T>();
   Task<T> facadeTask = existingOp.Task;
   
-  Task.Factory.StartNew(() =>
+  //Task.Factory.StartNew(() =>
+  Task.Run(() =>
   {
       //执行操作或task
       ...
@@ -72,3 +78,21 @@
   ```
 
 * 控制Task执行结果
+  ```c#
+  Task.Run(async() =>
+    {
+        int value = (new Random()).Next(100);
+        Console.WriteLine("Value: " + value);
+
+        //控制facade的执行结果
+        if (value < 33)
+            await Task.FromException(new Exception("Less than 33"));
+        else if (value < 66)
+        {
+            CancellationTokenSource TokenSource = new CancellationTokenSource();
+            TokenSource.Cancel();
+
+            await Task.FromCanceled(TokenSource.Token);
+        }
+  });
+  ```
