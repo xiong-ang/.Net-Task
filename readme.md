@@ -96,3 +96,33 @@
         }
   });
   ```
+
+## Task Knowledge
+
+* Task Technology
+
+![](C:\Users\xiongang\Desktop\Async Technology Layer.PNG)
+
+  * 等待Task执行完：task.Wait()
+
+  * task.Result 会执行隐式等待
+
+  * Task.WaitAll/WaitAny(taskArray) 等待tasks
+
+  * WaitAllOneByOne
+
+    ![](C:\Users\xiongang\Desktop\WaitAllOneByOne.PNG)
+
+* Task组合
+
+![](C:\Users\xiongang\Desktop\TaskComposition.PNG)
+
+* Task.ContinueWhenAll/Task.ContinueWhenAny 多对一的Task组合
+
+* Task Exception
+
+  * 如果Task里抛出未处理的异常，将会导致：1.Task终止；2.异常被catch，保持在task的Exception属性总；3.异常将作为AggregateException的一部分，re-throw到.Wait/Result/WaitAll
+
+  * 异常处理
+
+    ![](C:\Users\xiongang\Desktop\TaskExceptionHandler.PNG)
