@@ -101,7 +101,7 @@
 
 * Task Technology
 
-![](C:\Users\xiongang\Desktop\Async Technology Layer.PNG)
+![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/Async%20Technology%20Layer.PNG?raw=true)
 
   * 等待Task执行完：task.Wait()
 
@@ -111,11 +111,11 @@
 
   * WaitAllOneByOne
 
-    ![](C:\Users\xiongang\Desktop\WaitAllOneByOne.PNG)
+    ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/WaitAllOneByOne.PNG?raw=true)
 
 * Task组合
 
-![](C:\Users\xiongang\Desktop\TaskComposition.PNG)
+![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/TaskComposition.PNG?raw=true)
 
 * Task.ContinueWhenAll/Task.ContinueWhenAny 多对一的Task组合
 
@@ -125,4 +125,4 @@
 
   * 异常处理
 
-    ![](C:\Users\xiongang\Desktop\TaskExceptionHandler.PNG)
+    ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/TaskExceptionHandler.PNG?raw=true)
