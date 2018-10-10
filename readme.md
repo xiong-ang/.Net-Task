@@ -129,19 +129,19 @@
 
 * Task Cancellation
 
-  ![](C:\Users\xiongang\Desktop\TaskCancellation.PNG)
+  ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/TaskCancellation.PNG?raw=true)
 
   * Task Creator Job
 
-    ![](C:\Users\xiongang\Desktop\TaskCreatorJob.PNG)
+    ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/TaskCreatorJob.PNG?raw=true)
 
   * Cancellation Task Job
 
-    ![](C:\Users\xiongang\Desktop\CanceledTaskJob.PNG)
+    ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/CanceledTaskJob.PNG?raw=true)
 
 * Pass Data
 
   * Child-Parent Task
 
-    ![](C:\Users\xiongang\Desktop\Child-Parent Task.PNG)
+    ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/Child-Parent%20Task.PNG?raw=true)
 
