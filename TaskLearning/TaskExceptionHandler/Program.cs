@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,16 +14,22 @@ namespace TaskExceptionHandler
             //TestResultExcettionHandler();
         }
 
-        //https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskscheduler.unobservedtaskexception?redirectedfrom=MSDN&view=netframework-4.7.2
         static void TestUnobseredTaskExceptionHandler()
         {
+            //The UnobservedTaskException will only happen if a Task gets collected by the GC with an exception unobserved
             TaskScheduler.UnobservedTaskException += (object sender, UnobservedTaskExceptionEventArgs e) =>{
                 PrintException(e.Exception.InnerException);
                 e.SetObserved();
             };
 
-            Task<int> t = Task.Run<int>(async () => await ExceptionTaskFunc());
-            Thread.Sleep(5000);//Wait task to complete
+            //As long as we hold a reference of task, the GC will never collect
+            //Task<int> t = Task.Run<int>(async () => await ExceptionTaskFunc());
+
+            Task.Run(async () => await ExceptionTaskFunc());
+
+            Thread.Sleep(2000);//Wait task to complete
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         static int TestExceptionAttriHandler()
