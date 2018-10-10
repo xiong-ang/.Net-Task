@@ -126,3 +126,22 @@
   * 异常处理
 
     ![](https://github.com/xiong-ang/.Net-Task/blob/master/Imgs/TaskExceptionHandler.PNG?raw=true)
+
+* Task Cancellation
+
+  ![](C:\Users\xiongang\Desktop\TaskCancellation.PNG)
+
+  * Task Creator Job
+
+    ![](C:\Users\xiongang\Desktop\TaskCreatorJob.PNG)
+
+  * Cancellation Task Job
+
+    ![](C:\Users\xiongang\Desktop\CanceledTaskJob.PNG)
+
+* Pass Data
+
+  * Child-Parent Task
+
+    ![](C:\Users\xiongang\Desktop\Child-Parent Task.PNG)
+
